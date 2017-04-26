@@ -2,11 +2,13 @@ def source_paths
   Array(super) + [File.expand_path(File.dirname(__FILE__))]
 end
 
+copy_file 'docker-compose.yml', 'docker-compose.yml'
 copy_file 'rubocop.yml', '.rubocop.yml'
-copy_file 'gitignore', '.gitignore', force: true
 create_file '.ruby-version', RUBY_VERSION
 remove_file 'README.rdoc'
 
+template 'gitignore', '.gitignore', force: true
+template 'Dockerfile.tt', force: true
 template 'Gemfile.tt', force: true
 template 'Rakefile.tt', force: true
 

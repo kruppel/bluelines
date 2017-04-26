@@ -1,0 +1,11 @@
+FROM ruby:<%= RUBY_VERSION %>
+
+COPY Gemfile* /tmp/
+WORKDIR /tmp
+ENV BUNDLE_GEMFILE=/tmp/Gemfile BUNDLE_JOBS=2 BUNDLE_PATH=/bundle
+RUN bundle --jobs 4 --retry 3 --without test development
+
+ENV APP /app
+RUN mkdir $APP
+WORKDIR $APP
+ADD . $APP
