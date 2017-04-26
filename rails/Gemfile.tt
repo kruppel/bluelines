@@ -6,6 +6,7 @@ gem 'puma'
 gem 'rails'
 
 group :development do
+  gem 'listen'
   gem 'pry'
   gem 'rubocop'
   gem 'spring'

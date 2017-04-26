@@ -9,11 +9,12 @@ AllCops:
     - 'bin/**/*'
     - 'db/schema.rb'
     - 'vendor/**/*'
-  RunRailsCops: true
   DisplayCopNames: false
   DisplayStyleGuide: false
   StyleGuideCopsOnly: false
   DisabledByDefault: false
+  Rails:
+    Enabled: true
 
 Style/AccessModifierIndentation:
   EnforcedStyle: indent
@@ -73,7 +74,6 @@ Style/BracesAroundHashParameters:
   Enabled: false
 
 Style/CaseIndentation:
-  IndentWhenRelativeTo: case
   SupportedStyles:
     - case
     - end
@@ -350,9 +350,7 @@ Style/SpaceAroundEqualsInParameterDefault:
     - no_space
 
 Style/SpaceAroundOperators:
-  MultiSpaceAllowedForOperators:
-    - '='
-    - '=>'
+  AllowForAlignment: true
 
 Style/SpaceBeforeBlockBraces:
   EnforcedStyle: space
@@ -391,7 +389,7 @@ Style/TrailingBlankLines:
     - final_newline
     - final_blank_line
 
-Style/TrailingComma:
+Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: no_comma
   SupportedStyles:
     - comma
@@ -478,14 +476,14 @@ Lint/AssignmentInCondition:
   AllowSafeAssignment: true
 
 Lint/EndAlignment:
-  AlignWith: keyword
+  EnforcedStyleAlignWith: keyword
   SupportedStyles:
     - keyword
     - variable
   AutoCorrect: false
 
 Lint/DefEndAlignment:
-  AlignWith: start_of_line
+  EnforcedStyleAlignWith: start_of_line
   SupportedStyles:
     - start_of_line
     - def
@@ -506,10 +504,6 @@ Rails/Date:
   SupportedStyles:
     - strict
     - flexible
-
-Rails/DefaultScope:
-  Include:
-    - app/models/**/*.rb
 
 Rails/FindBy:
   Include:
