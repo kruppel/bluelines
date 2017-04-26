@@ -4,6 +4,9 @@ gem 'active_model_serializers'
 gem 'pg'
 gem 'puma'
 gem 'rails'
+<% if options[:webpack].present? -%>
+gem 'webpacker'
+<% end -%>
 
 group :development do
   gem 'listen'
