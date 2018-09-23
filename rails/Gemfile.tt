@@ -1,21 +1,29 @@
 source 'https://rubygems.org'
 
+source 'https://rubygems.org'
+
 gem 'active_model_serializers'
+gem 'bootsnap'
+gem 'dotenv-rails'
+gem 'hiredis'
 gem 'pg'
+gem 'pry-rails'
 gem 'puma'
 gem 'rails'
+gem 'sidekiq'
 <% if options[:webpack].present? -%>
 gem 'webpacker'
 <% end -%>
 
 group :development do
   gem 'listen'
-  gem 'pry'
   gem 'rubocop'
   gem 'spring'
 end
 
 group :test do
   gem 'byebug'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
 end
